@@ -135,10 +135,10 @@
 * Stream을 사용해 오늘 날짜와 일치하는 티켓 수를 구하고 현황을 반환합니다.
     ```java
     list.stream()
-      .filter(r -> r.getDate().equals(today))
-      .forEach(r -> total += Integer.parseInt(r.getAdultCount())
-        + Integer.parseInt(r.getYouthCount())
-        + Integer.parseInt(r.getKidCount()));
+        .filter(r -> r.getDate().equals(today))
+        .forEach(r -> total += Integer.parseInt(r.getAdultCount())
+            + Integer.parseInt(r.getYouthCount())
+            + Integer.parseInt(r.getKidCount()));
     return total < 500 ? "쾌적" : "혼잡";
     ```
 <br />
@@ -147,34 +147,34 @@
 * 해당 월의 1일이 무슨 요일인지 반환하는 메소드입니다.
     ```java
     int day = 0;
-		for(int i=1; i<year; i++) {
-			day += isLeapYear(i) ? 366 : 365;
-		}
-		for(int i=1; i<month; i++) {
-			day += getLastDay(year, i);
-		}
-		day++;
-		return day % 7;
+    for(int i=1; i<year; i++) {
+        day += isLeapYear(i) ? 366 : 365;
+    }
+    for(int i=1; i<month; i++) {
+        day += getLastDay(year, i);
+    }
+    day++;
+    return day % 7;
     ```
 * 해당 월의 마지막일을 반환하는 메소드입니다.
     ```java
     switch (month) {
-		case 1, 3, 5, 7, 8, 10, 12 :
-			return 31;
-		case 4, 6, 9, 11 :
-			return 30;
-		case 2 : 
-			return isLeapYear(year) ? 29 : 28;
-		}
-		return 0;
+        case 1, 3, 5, 7, 8, 10, 12 :
+            return 31;
+        case 4, 6, 9, 11 :
+            return 30;
+        case 2 : 
+            return isLeapYear(year) ? 29 : 28;
+    }
+    return 0;
     ```
 * 해당 해가 윤년인지 boolean값으로 반환합니다.
     ```java
-		if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
-			return true;
-		} else {
-			return false;
-		}
+    if(year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+        return true;
+    } else {
+        return false;
+    }
     ```
 <br />
 
@@ -182,19 +182,19 @@
 * 한 페이지당 10명의 직원만 조회하기 위한 for문 입니다.
     ```java
     for(int i=page*10; i<page*10+10&&i<list.size(); i++) {
-			if(list.get(i).getSeq().equals("")) {
-				break;
-			}
-			System.out.printf("\t\t\t\t\t %s%6s%6s\t%-25s\t%-13s\t%s%n"
-							, list.get(i).getSeq()
-							, list.get(i).getName()
-							, list.get(i).getAge()
-							, list.get(i).getAddress()
-							, list.get(i).getPhoneNum().substring(0,3) + "-" 
-								+ list.get(i).getPhoneNum().substring(3,7) + "-" 
-								+ list.get(i).getPhoneNum().substring(7)
-							, list.get(i).getWorkPlace());
-		}
+        if(list.get(i).getSeq().equals("")) {
+            break;
+        }
+        System.out.printf("\t\t\t\t\t %s%6s%6s\t%-25s\t%-13s\t%s%n"
+            , list.get(i).getSeq()
+            , list.get(i).getName()
+            , list.get(i).getAge()
+            , list.get(i).getAddress()
+            , list.get(i).getPhoneNum().substring(0,3) + "-" 
+                + list.get(i).getPhoneNum().substring(3,7) + "-" 
+                + list.get(i).getPhoneNum().substring(7)
+                , list.get(i).getWorkPlace());
+    }
     ```
 * 현재 페이지를 안내하는 페이지바를 출력합니다.
     ```java
@@ -202,11 +202,11 @@
     ```
 * 마지막 페이지의 경우 페이지 이동이 불가능하도록 if문을 사용했습니다.
     ```java
-		if(page != list.size()/10) {
-      page++;
+    if(page != list.size()/10) {
+        page++;
     } else {
-      System.out.println("\t\t\t\t\t\t\t\t다음 페이지가 없습니다.");
-      return;
+        System.out.println("\t\t\t\t\t\t\t\t다음 페이지가 없습니다.");
+        return;
     }
     ```
 <br />
