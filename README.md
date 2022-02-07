@@ -198,7 +198,7 @@
     ```
 * 현재 페이지를 안내하는 페이지바를 출력합니다.
     ```java
-    System.out.printf("\t\t\t\t\t< 이전페이지\t\t\t\t     %d / %d\t\t\t\t   다음 페이지 >%n", page+1, list.size()/10+1);
+    System.out.printf("< 이전페이지     %d / %d     다음 페이지 >%n", page+1, list.size()/10+1);
     ```
 * 마지막 페이지의 경우 페이지 이동이 불가능하도록 if문을 사용했습니다.
     ```java
